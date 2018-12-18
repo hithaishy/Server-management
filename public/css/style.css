@@ -68,3 +68,15 @@ button {
     width: 20px;
     
 } 
+.icon {
+    width: 80px;
+    height: 30px;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+  }
+.imgicons {
+    width: 16px;
+    height: 16px;
+    margin: 0.5px;
+}
