@@ -8,7 +8,10 @@ header {
     box-sizing: border-box;
 }
 
-
+body {
+    width: 100vw;
+    height: 100vh;
+}
 nav {
     float: left;
     width: 30%;
@@ -55,8 +58,8 @@ button {
 
  label 	{
      display: block;
-  float: left;
-  width : 120px;  
+    float: left;
+    width : 120px;  
 }
 
 #img {
@@ -79,4 +82,69 @@ button {
     width: 16px;
     height: 16px;
     margin: 0.5px;
+}
+
+#serverList {
+    padding: 5px 5px;
+    display: block;
+    margin: 17px 0px ;
+}
+
+#serverList1 {
+    padding: 5px 5px;
+    margin: 5px 5px ;
+}
+.tab-content{
+    position: relative;
+}
+
+
+/**
+*
+*css for accordian
+*/
+.tab-content {
+    position: relative;
+}
+
+.accContainer {
+    width: 60%;
+    margin: 50px auto;
+    position: absolute;
+}
+button.accordion {
+    width: 100%;
+    background-color: whitesmoke;
+    border: none;
+    outline: none;
+    text-align: left;
+    padding: 15px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.2s linear;
+}
+
+button.accordion::after {
+    content: '\f055';
+    font-family: 'fontawesome';
+    float: right;
+}
+
+button.accordion.is-open::after {
+    content: '\f056';
+    
+}
+
+button.accordion:hover, button.accordion.is-open {
+    background-color: #ddd;
+}
+
+.accordion-content {
+    border-left: 2px solid whitesmoke;
+    border-right: 2px solid whitesmoke;
+    background-color:rgb(255, 255, 255); 
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-in-out;
+    
 }
