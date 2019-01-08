@@ -17,7 +17,7 @@ nav {
     width: 30%;
     background: #ccc;
     padding: 20px;
-    height: 500px;
+    height: 105vh;
     text-align: center;
     box-sizing: border-box;
 }
@@ -31,6 +31,7 @@ nav {
 
 
 
+
 article {
     float: left;
     padding: 20px;
@@ -38,7 +39,7 @@ article {
     background-color: #f1f1f1;
     position: relative;
     display: block;
-    height: 500px; /* only for demonstration, should be removed */
+    height: 105vh; /* only for demonstration, should be removed */
     box-sizing: border-box;
 }
 
@@ -94,8 +95,10 @@ button {
     padding: 5px 5px;
     margin: 5px 5px ;
 }
-.tab-content{
-    position: relative;
+
+.allContainer {
+   width:100%;
+   height: 100%;
 }
 
 
@@ -108,7 +111,7 @@ button {
 }
 
 .accContainer {
-    width: 60%;
+    width: 100%;
     margin: 50px auto;
     position: absolute;
 }
@@ -147,4 +150,73 @@ button.accordion:hover, button.accordion.is-open {
     overflow: hidden;
     transition: max-height 0.2s ease-in-out;
     
+}
+
+/**
+*Css for cancel and next button
+*/
+
+.actionBtn {
+    background-color: #008CBA; /* Green */
+    border: none;
+    color: white;
+    padding: 13px 26px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    float: right;
+    margin: 5px;
+    margin-top: 15px;
+  }
+
+  .actionBtn:after {
+    content: "";
+    display: table;
+    clear: both;
+    box-sizing: border-box;
+}
+
+div.summary, div.output{
+    border: 1px solid #000;
+    width: 100%;
+    height: 200px;
+}
+
+div h1{
+    text-align: center;
+    margin-top: -10px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 15px;
+}
+
+div.summary, div.output, h1 span{
+    background-color: white;
+}
+.output {
+ margin-top : 10px;
+}
+
+button {
+  background-color: #008CBA; /* blue */
+  border: none;
+  color: white;
+  padding: 13px 26px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 15px;
+  
+}
+.cBtns {
+    margin-top : 10px;
+    margin-bottom: 10px;
+}
+.teButns {
+  margin-left: 30%;
+}
+
+div.summary p {
+    margin-left: 10px;
 }

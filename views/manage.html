@@ -21,7 +21,7 @@
 
 <body class="container">
 
-    <div>
+    <div class="allContainer">
         <header>
             <h2> Manage Servers</h2>
             <span class="icon">
@@ -40,12 +40,12 @@
                     <option>Vsphere 1</option>
                     <option>VSpehere 2</option>
                 </select>
-            </br>
+                </br>
                 <select id="serverList1">
-                        <option value="" disabled selected>Select Template</option>
-                        <option>Vsphere 1</option>
-                        <option>VSpehere 2</option>
-                    </select>
+                    <option value="" disabled selected>Select Template</option>
+                    <option>Vsphere 1</option>
+                    <option>VSpehere 2</option>
+                </select>
             </nav>
 
 
@@ -98,36 +98,50 @@
                             </div>
                             <button class="accordion">Compute</button>
                             <div class="accordion-content">
-                                    <select id="serverList">
-                                            <option value="" disabled selected>Select OS Family</option>
-                                            <option>Vsphere 1</option>
-                                            <option>VSpehere 2</option>
-                                        </select>
-                                        <select id="serverList">
-                                            <option value="" disabled selected>Select OS</option>
-                                            <option>Vsphere 1</option>
-                                            <option>VSpehere 2</option>
-                                        </select>
-                                        <select id="serverList">
-                                            <option value="" disabled selected>Select CPU</option>
-                                            <option>Vsphere 1</option>
-                                            <option>VSpehere 2</option>
-                                        </select>
-                                        <select id="serverList">
-                                            <option value="" disabled selected>Instance Count</option>
-                                            <option>Vsphere 1</option>
-                                            <option>VSpehere 2</option>
-                                        </select>
+                                <select id="serverList">
+                                    <option value="" disabled selected>Select OS Family</option>
+                                    <option>Vsphere 1</option>
+                                    <option>VSpehere 2</option>
+                                </select>
+                                <select id="serverList">
+                                    <option value="" disabled selected>Select OS</option>
+                                    <option>Vsphere 1</option>
+                                    <option>VSpehere 2</option>
+                                </select>
+                                <select id="serverList">
+                                    <option value="" disabled selected>Select CPU</option>
+                                    <option>Vsphere 1</option>
+                                    <option>VSpehere 2</option>
+                                </select>
+                                <select id="serverList">
+                                    <option value="" disabled selected>Instance Count</option>
+                                    <option>Vsphere 1</option>
+                                    <option>VSpehere 2</option>
+                                </select>
                             </div>
+                            <button class="actionBtn"> Next</button>
+                            <button class="actionBtn"> Cancel</button>
+                        </div>
+
+                    </div>
+
+                    <div class="tab-pane fade " id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <div class="summary">
+                            <h1><span>Summary</span></h1>
+                            <p class="networkText">Network : </p>
+                            <p class="networkText">Network Adapter :</p>
+                            <p class="networkText">Data Store :</p>
+                            <p class="networkText">OS :</p>
+                        </div>
+                        <span class="teButns">
+                        <button class="cBtns">Test</button>
+                        <button class="cBtns">Execute</button>
+                        </span>
+                        
+                        <div class="output">
+                            <h1><span>Output</span></h1>
                         </div>
                     </div>
-                    <div class="tab-pane fade " id="profile" role="tabpanel" aria-labelledby="profile-tab">Et et
-                        consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat
-                        veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim.
-                        Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud
-                        minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt
-                        tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing
-                        reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex....</div>
                     <div class="tab-pane fade " id="contact" role="tabpanel" aria-labelledby="contact-tab">Et et
                         consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat
                         veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim.
