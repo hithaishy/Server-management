@@ -14,6 +14,9 @@
     <!-- load the dependencies -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- load our angular app with systemjs -->
 
@@ -34,22 +37,24 @@
         </header>
 
         <section>
+
             <nav>
-                <select id="serverList1">
+                <select class="serverList1">
                     <option value="" disabled selected>Select Remote Site</option>
                     <option>Vsphere 1</option>
                     <option>VSpehere 2</option>
                 </select>
                 </br>
-                <select id="serverList1">
+                <select class="serverList1">
                     <option value="" disabled selected>Select Template</option>
                     <option>Vsphere 1</option>
                     <option>VSpehere 2</option>
                 </select>
             </nav>
 
-
+            
             <article>
+            
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
@@ -69,13 +74,13 @@
                         <div class="accContainer" id="accBody">
                             <button class="accordion">Networking</button>
                             <div class="accordion-content">
-                                <select id="serverList">
+                                <select class="serverList"  id="selectNetwork" required>
                                     <option value="" disabled selected>Select Network</option>
-                                    <option>Vsphere 1</option>
-                                    <option>VSpehere 2</option>
+                                    <option>RL 1</option>
+                                    <option>RL 2</option>
                                 </select>
 
-                                <select id="serverList">
+                                <select class="serverList" id="selectAdapter" required> 
                                     <option value="" disabled selected>Select Adapter</option>
                                     <option>Vsphere 1</option>
                                     <option>VSpehere 2</option>
@@ -84,42 +89,42 @@
                             </div>
                             <button class="accordion">Storage</button>
                             <div class="accordion-content">
-                                <select id="serverList">
+                                <select class="serverList" id="selectData" required>
                                     <option value="" disabled selected>Select Data Store</option>
-                                    <option>Vsphere 1</option>
-                                    <option>VSpehere 2</option>
+                                    <option>US East</option>
+                                    <option>N. Virginia</option>
                                 </select>
 
-                                <select id="serverList">
+                                <select class="serverList" id="selectHdd" required>
                                     <option value="" disabled selected>Select Hard Disks</option>
-                                    <option>Vsphere 1</option>
-                                    <option>VSpehere 2</option>
+                                    <option>HDD 1</option>
+                                    <option>SSD 2</option>
                                 </select>
                             </div>
                             <button class="accordion">Compute</button>
                             <div class="accordion-content">
-                                <select id="serverList">
+                                <select class="serverList" id="selectOsFam" required>
                                     <option value="" disabled selected>Select OS Family</option>
-                                    <option>Vsphere 1</option>
-                                    <option>VSpehere 2</option>
+                                    <option>Fedora</option>
+                                    <option>CentOS</option>
                                 </select>
-                                <select id="serverList">
+                                <select class="serverList" id="selectOs" required>
                                     <option value="" disabled selected>Select OS</option>
-                                    <option>Vsphere 1</option>
-                                    <option>VSpehere 2</option>
+                                    <option>Redhat</option>
+                                    <option>Ubuntu</option>
                                 </select>
-                                <select id="serverList">
+                                <select class="serverList" id="selectCpu" required>
                                     <option value="" disabled selected>Select CPU</option>
-                                    <option>Vsphere 1</option>
-                                    <option>VSpehere 2</option>
+                                    <option>Intel i7</option>
+                                    <option>Intel i8</option>
                                 </select>
-                                <select id="serverList">
+                                <select class="serverList" id="instanceCount" required> 
                                     <option value="" disabled selected>Instance Count</option>
                                     <option>Vsphere 1</option>
                                     <option>VSpehere 2</option>
                                 </select>
                             </div>
-                            <button class="actionBtn"> Next</button>
+                            <button class="actionBtn" id="planNext" type="submit"> Next</button>
                             <button class="actionBtn"> Cancel</button>
                         </div>
 
@@ -128,18 +133,19 @@
                     <div class="tab-pane fade " id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <div class="summary">
                             <h1><span>Summary</span></h1>
-                            <p class="networkText">Network : </p>
-                            <p class="networkText">Network Adapter :</p>
-                            <p class="networkText">Data Store :</p>
-                            <p class="networkText">OS :</p>
+                            <p class="networkText" id="networkSum">Network : </p>
+                            <p class="networkText" id="adapterSum">Network Adapter :</p>
+                            <p class="networkText" id="dataStoreSum">Data Store :</p>
+                            <p class="networkText" id="osSum">OS :</p>
                         </div>
                         <span class="teButns">
-                        <button class="cBtns">Test</button>
-                        <button class="cBtns">Execute</button>
+                            <button class="cBtns" id="testBtn">Test</button>
+                            <button class="cBtns" id="execBtn">Execute</button>
                         </span>
-                        
+
                         <div class="output">
                             <h1><span>Output</span></h1>
+                            <pre style="border : 0px; background-color: white ; padding: 0px; " id="shellOutput"></pre>
                         </div>
                     </div>
                     <div class="tab-pane fade " id="contact" role="tabpanel" aria-labelledby="contact-tab">Et et
@@ -150,7 +156,10 @@
                         tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing
                         reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex....</div>
                 </div>
+
+                </form>
             </article>
+
         </section>
 
     </div>

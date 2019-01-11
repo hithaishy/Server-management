@@ -85,13 +85,13 @@ button {
     margin: 0.5px;
 }
 
-#serverList {
+.serverList {
     padding: 5px 5px;
     display: block;
     margin: 17px 0px ;
 }
 
-#serverList1 {
+.serverList1 {
     padding: 5px 5px;
     margin: 5px 5px ;
 }

@@ -12,7 +12,7 @@
 //     'pwd': 'C:\petclinic '
 //   },
 //   {
-//     'name': 'VSphere 2',
+//     'name': 'VSphere 2',ˇ
 //     'password': '12345',
 //     'server': "VM1",
 //     'pwd': 'C:\petclinic '
@@ -78,19 +78,82 @@
 //   evt.currentTarget.className += " active";
 //   //selectedTab.appendChild(document.createTextNode(selectnValue));
 // }
+
+let serverOptions = {
+    networking: {
+        network: null,
+        adapter: null
+    },
+    storage: {
+        dataStore: null,
+        hardDrive: null
+    },
+    compute: {
+        osFamily: null,
+        os: null,
+        cpu: null,
+        instanceCount: null
+    }
+};
 document.addEventListener("DOMContentLoaded", () => {
-let body = document.getElementById('accBody');
-        body.addEventListener('click', (event) => {             //adding event listener once the DOM is loaded
-            if (event.target && event.target.nodeName === 'BUTTON') {       //Listening to all click events on td
-                let content = event.target.nextElementSibling;
-                event.target.classList.toggle('is-open');
-                if (content.style.maxHeight) {
-                    //that means the accordion is open so close
-                    content.style.maxHeight = null;
-                } else {
-                    //open the accordion
-                    content.style.maxHeight = content.scrollHeight + "px";
-                }
+    let accBbody = document.getElementById('accBody');
+    accBbody.addEventListener('click', (event) => {             //adding event listener once the DOM is loaded
+        if (event.target && event.target.nodeName === 'BUTTON') {       //Listening to all click events on td
+            let content = event.target.nextElementSibling;
+            event.target.classList.toggle('is-open');
+            if (content.style.maxHeight) {
+                //that means the accordion is open so close
+                content.style.maxHeight = null;
+            } else {
+                //open the accordion
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        }
+    });
+    let testBtn = document.getElementById('testBtn');
+
+    testBtn.addEventListener('click', (event) => {
+        //console.log('button was clicked');
+        let pwd = "/Users/hithaishy/Desktop/hello"
+        output = document.getElementById('shellOutput');
+        fetch('/manage', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ pwd })
+        }).then(response => response.text()).then(resp => {
+            output.innerHTML = resp;
+        })
+            .catch(function (error) {
+                console.log(error);
+            });
+    });
+
+    let planNext = document.getElementById('planNext');
+    $(function () {
+
+        $('#planNext').click(function (e) {
+            e.preventDefault();
+            let next_tab = $('.nav-tabs > .active').next('li').find('a');
+            if (next_tab.length > 0) {
+                next_tab.trigger('click');
+                fillSummary();
+            } else {
+                $('.nav-tabs li:eq(0) a').trigger('click');
             }
         });
-      });
+    });
+
+
+    function fillSummary() {
+        let pEle = document.getElementsByClassName('networkText');
+        pEle[0].textContent += ($("#selectNetwork :selected").text()) ? $("#selectNetwork :selected").text() : "";
+        pEle[1].textContent += ($("#selectAdapter :selected").text()) ? $("#selectAdapter :selected").text() : "";
+        pEle[2].textContent += ($("#selectData :selected").text()) ? $("#selectData :selected").text() : "";
+        pEle[3].textContent += ($("#selectOs :selected").text()) ? $("#selectOs :selected").text() : "";
+    }
+});
+
+
