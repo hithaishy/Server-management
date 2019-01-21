@@ -26,10 +26,12 @@ app.post('/manage', (req, res) => {
   const click = { clickTime: new Date() };
   //console.log(click);
   //let cmd = exec('dir');
-  let pwd = req.body.pwd;
+  let pwd = req.body.pwd.cwd;
   
-  
-  exec(`cd ${pwd} && terraform plan`, (error, stdout, stderr) => {
+  let action = req.body.pwd.action;
+   console.log(action)
+
+  exec(`cd ${pwd} && terraform ${action} -lock=false 2>&1 | tee -a /tmp/mylog 2>/dev/null >/dev/null &`, (error, stdout, stderr) => {
     if (error) {
       res.status(500).send(stderr);
       return;

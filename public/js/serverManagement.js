@@ -33,8 +33,17 @@ document.addEventListener('DOMContentLoaded',()=>{
 		optn.text = myForm.elements['Stack Name'].value;
 		vSelect.appendChild(optn);
 	}
-	let setIcon = document.getElementById('img');
-	setIcon.addEventListener('click')
+	let settingIcon = document.getElementById('settingIcon');
+
+    settingIcon.addEventListener('click',(eve)=>{
+        location.href = 'http://localhost:3000/settings'
+	});
+	
+	let homeIcon = document.getElementById('homeIcon');
+
+    homeIcon.addEventListener('click',(eve)=>{
+        location.href = 'http://localhost:3000/manage'
+    });
 });
 
 

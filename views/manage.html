@@ -14,7 +14,7 @@
     <!-- load the dependencies -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -28,8 +28,8 @@
         <header>
             <h2> Manage Servers</h2>
             <span class="icon">
-                <img src="../public/img/open-iconic-master/svg/home.svg" class="imgicons" alt="home">
-                <img src="../public/img/open-iconic-master/svg/cog.svg" class="imgicons" alt="settings">
+                <img src="../public/img/open-iconic-master/svg/home.svg" id="homeIcon" class="imgicons" alt="home">
+                <img src="../public/img/open-iconic-master/svg/cog.svg" id="settingIcon" class="imgicons" alt="settings">
                 <img src="../public/img/open-iconic-master/svg/power-standby.svg" class="imgicons" alt="logoff">
 
             </span>
@@ -140,21 +140,29 @@
                         </div>
                         <span class="teButns">
                             <button class="cBtns" id="testBtn">Test</button>
-                            <button class="cBtns" id="execBtn">Execute</button>
+                            <button class="cBtns" id="applyBtn">Execute</button>
                         </span>
 
                         <div class="output">
                             <h1><span>Output</span></h1>
-                            <pre style="border : 0px; background-color: white ; padding: 0px; " id="shellOutput"></pre>
+                            <pre style="border : 0px; background-color: white ; ; width: inherit; height: 225px; " id="shellOutput"></pre>
                         </div>
                     </div>
-                    <div class="tab-pane fade " id="contact" role="tabpanel" aria-labelledby="contact-tab">Et et
-                        consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat
-                        veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim.
-                        Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud
-                        minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt
-                        tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing
-                        reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex....</div>
+                    <div class="tab-pane fade " id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                            <div class="summary">
+                                    <h1><span>Summary</span></h1>
+                                    <p class="networkText" id="networkSum">Network : </p>
+                                    <p class="networkText" id="adapterSum">Network Adapter :</p>
+                                    <p class="networkText" id="dataStoreSum">Data Store :</p>
+                                    <p class="networkText" id="osSum">OS :</p>
+                                </div>
+                                    <button class="cBtns" id="destroyBtn" style="margin: 5px auto; display:block;">Destroy</button>
+                                
+                                <div class="output">
+                                    <h1><span>Output</span></h1>
+                                    <pre style="border : 0px; background-color: white ; padding: 0px; " id="shellOutput"></pre>
+                                </div>
+                    </div>
                 </div>
 
                 </form>
